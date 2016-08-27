@@ -9,4 +9,9 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url
   end
+
+  # private
+  # def session_params
+  #   params.require(:session).permit(:user_id)
+  # end
 end

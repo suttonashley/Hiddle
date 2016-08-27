@@ -6,10 +6,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script id="facebook-jssdk" src="//connect.facebook.net/en_US/sdk.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div id="user-widget">
+      <% if current_user %>
+        Welcome <strong><%= current_user.name %></strong>!
+        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+      <% else %>
+        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
