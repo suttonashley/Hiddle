@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'homes/show'
+
   get 'sessions/create'
   get 'sessions/destroy'
 
