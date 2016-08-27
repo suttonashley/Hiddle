@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'homes/show'
+  root 'homes#show'
 
-  get 'sessions/create'
-  get 'sessions/destroy'
+  # get 'sessions/create'
+  # get 'sessions/destroy'
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
