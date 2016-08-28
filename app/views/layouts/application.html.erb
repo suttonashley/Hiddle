@@ -20,5 +20,7 @@
       <% end %>
     </div>
     <%= yield %>
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" data-auto-logout-link="true">
+    </fb:login-button>
   </body>
 </html>

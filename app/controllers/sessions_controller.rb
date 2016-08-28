@@ -1,8 +1,12 @@
 class SessionsController < ApplicationController
+  # def create
+  #   user = User.from_omniauth(env["omniauth.auth"])
+  #   session[:user_id] = user.id
+  #   redirect_to root_url
+  # end
+
   def create
-    user = User.from_omniauth(env["omniauth.auth"])
-    session[:user_id] = user.id
-    redirect_to root_url
+    render text: request.env['omniauth.auth'].to_json
   end
 
   def destroy
@@ -10,8 +14,4 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
-  # private
-  # def session_params
-  #   params.require(:session).permit(:user_id)
-  # end
 end
