@@ -11,6 +11,8 @@
   </head>
 
   <body>
+    <p><fb:login-button scope="public_profile,email" onlogin="checkLoginState();" data-auto-logout-link="true">
+    </fb:login-button></p>
     <div id="user-widget">
       <% if current_user %>
         Welcome <strong><%= current_user.name %></strong>!
@@ -20,7 +22,6 @@
       <% end %>
     </div>
     <%= yield %>
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" data-auto-logout-link="true">
-    </fb:login-button>
+
   </body>
 </html>
